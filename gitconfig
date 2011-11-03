@@ -1,0 +1,35 @@
+[alias]
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	df = diff
+	lg = log -p
+[apply]
+	whitespace = fix
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[core]
+	autocrlf = input
+	savecrlf = true
+	whitespace = fix,space-before-tab,-indent-with-non-tab,trailing-space,cr-at-eol
+[merge]
+	log = true
+[user]
+	name = Akiva Levy
+	email = akiva@sixthirteendesign.com

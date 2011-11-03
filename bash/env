@@ -1,0 +1,17 @@
+# Set PATH, CDPATH, EDITOR, etc.
+
+# Set up our editors
+export EDITOR=vim
+export SVN_EDITOR=vim
+
+# PATH includes for /usr/local, ~/bin, etc.
+export PATH="~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:~/bin:$PATH"
+
+# Include BREWs Cellar into our path
+export PATH=/usr/local/Cellar/php/5.3.4/bin:$PATH
+
+# Include our Git completion file for BASH
+source ~/dotfiles/bash/git-completion
+
+# Load RVM into a shell session.
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
