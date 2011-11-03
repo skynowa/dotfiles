@@ -6,7 +6,7 @@ setup for *nix-based systems.
 ## Installation:
 
 ```bash
-git clone * <git://github.com/akiva/dotfiles ~/
+git clone git://github.com/akiva/dotfiles.git ~/
 ```
 
 ## Create symlinks for any of the tools you use:
@@ -16,17 +16,16 @@ ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/gvimrc ~/.gvimrc
 ln -s ~/dotfiles/bashrc ~/.bashrc
 ln -s ~/dotfiles/bash_profile ~/.bash_profile
-ln -s ~/dotfiles/gitconfig ~/.git>config
-ln -s ~/dotfiles/gitignore ~/.git>ignore
+ln -s ~/dotfiles/gitconfig ~/.git/config
+ln -s ~/dotfiles/gitignore ~/.git/ignore
 ln -s ~/dotfiles/ssh/config ~/.ssh/config
 ```
 
-## Switch to the `~/dotfiles/vim/bundles` directory, and fetch submodules:
+## Switch to the `~/dotfiles/vim` directory, and clone bundles:
 
 ```bash
-cd ~/dotfiles/vim/bundle
-git submodule init
-git submodule update
+cd ~/dotfiles/vim
+./update_bundles
 ```
 
 ## Featured Vim bundles
