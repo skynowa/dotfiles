@@ -11,13 +11,34 @@ git clone git://github.com/akiva/dotfiles.git ~/
 
 ## Create symlinks for any of the tools you use:
 
+### Vim
+
 ```bash
 ln -s ~/dotfiles/vimrc ~/.vimrc
+ln -s ~/dotfiles/vim/ ~/.vim
 ln -s ~/dotfiles/gvimrc ~/.gvimrc
+```
+
+Note that due Pathogen expecting to find bundles at ~/.vim/bundle, we create a 
+symlink for ~/.vim to ~/dotfiles/vim
+
+### BASH
+
+```bash
 ln -s ~/dotfiles/bashrc ~/.bashrc
 ln -s ~/dotfiles/bash_profile ~/.bash_profile
+```
+
+### Git
+
+```bash
 ln -s ~/dotfiles/gitconfig ~/.git/config
 ln -s ~/dotfiles/gitignore ~/.git/ignore
+```
+
+### SSH
+
+```bash
 ln -s ~/dotfiles/ssh/config ~/.ssh/config
 ```
 

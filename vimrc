@@ -1,3 +1,13 @@
+" Enable Pathogen for bundling of plugin repos
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+call pathogen#helptags()
+
+" Windows compatibility (blech)
+if has('win32') || has('win64')
+  set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+endif
+
 " =============================================================================
 " Functionality
 " =============================================================================
@@ -76,17 +86,6 @@ scriptencoding utf-8
 if !has('win32') && !has('win64')
   set term=$TERM
 endif
-
-" Windows compatibility (blech)
-if has('win32') || has('win64')
-  set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
-endif
-
-" Enable Pathogen for bundling of plugin repos
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-" call pathogen#runtime_append_all_bundles()
-" call pathogen#helptags()
 
 " =============================================================================
 " Visual
