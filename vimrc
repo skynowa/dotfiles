@@ -1,4 +1,6 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable Pathogen for bundling of plugin repos
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
@@ -8,9 +10,9 @@ if has('win32') || has('win64')
   set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 endif
 
-" =============================================================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functionality
-" =============================================================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Disable Vi compatibility
 set nocompatible
@@ -23,7 +25,7 @@ set nobackup
 set nowritebackup
 
 " Set history to 100
-set history=100
+set history=500
 
 " Display incomplete commands
 set showcmd
@@ -72,8 +74,12 @@ set smartcase
 " Set title to show current filename
 set title
 
-" Enable folding
-set foldenable
+" Folding settings
+set foldmethod=indent  " Base on indentation
+set foldnestmax=10     " Allow a max fold depth of 10 levels
+set nofoldenable       " Don't fold by default
+set foldlevel=0        " 
+
 
 " Pesky swap file @.@
 set noswapfile
@@ -87,9 +93,9 @@ if !has('win32') && !has('win64')
   set term=$TERM
 endif
 
-" =============================================================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Visual
-" =============================================================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Show position in file
 set ruler
@@ -138,9 +144,9 @@ if has("gui_running")
   set columns=80
 endif
 
-" =============================================================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Aliases, functions, shortcuts, etc.
-" =============================================================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Set leader to comma
 let mapleader = ","
@@ -159,6 +165,9 @@ noremap <leader>ss :call StripWhitespace ()<CR>
 " Make editing .vimrc easier
 map <leader>v :sp ~/.vimrc<CR>
 map <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+" When vimrc is edited, reload it
+autocmd! bufwritepost vimrc source ~/.vimrc
 
 " Set up command for NERDTree
 map <leader>n :NERDTree<CR>
