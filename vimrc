@@ -78,7 +78,7 @@ set title
 set foldmethod=indent  " Base on indentation
 set foldnestmax=10     " Allow a max fold depth of 10 levels
 set nofoldenable       " Don't fold by default
-set foldlevel=0        " 
+set foldlevel=1        " 
 
 
 " Pesky swap file @.@
