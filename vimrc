@@ -200,3 +200,17 @@ else
   " Always set autoindenting on
   set autoindent
 endif
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERDTree plugin settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"Shortcut for NERDTreeToggle  
+nmap <leader>nt :NERDTreeToggle <CR>
+
+"autopen NERDTree and focus cursor in new document  
+autocmd VimEnter * NERDTree  
+autocmd VimEnter * wincmd p 
+
+" Show hidden (dot) files
+let NERDTreeShowHidden=1
