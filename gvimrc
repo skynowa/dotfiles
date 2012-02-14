@@ -1,4 +1,4 @@
-set lines=73
+set lines=75
 set columns=240
 " set gfn=Menlo\ Regular:h12
 set guioptions=egmrt

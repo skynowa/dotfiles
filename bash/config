@@ -43,7 +43,6 @@ BWHITE='\e[47m'
 
 # Update the command prompt to be <user>:<current_directory>(git_branch) >
 # Note that the git branch is given a special color
-# PS1="\n[\t] \u@\h:\w \[$EBLACK\]$(vcprompt)\[$NO_COLOR\]» ⨠ \n☠ \n✍ \n✡ \n➔ \n➥ \n"
 PS1="\n[\t] \u@\h:\w $(vcprompt)\n☠ "
 
 # User @ Host – working dir

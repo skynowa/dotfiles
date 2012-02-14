@@ -42,6 +42,15 @@ ln -s ~/dotfiles/gitignore ~/.git/ignore
 ln -s ~/dotfiles/ssh/config ~/.ssh/config
 ```
 
+### TODO.SH
+
+If you use [todo.sh](https://github.com/ginatrapani/todo.txt-cli) as I do, 
+it can be convenient to use my setup to include your config file as so:
+
+```bash
+ln -s ~/dotfiles/todo.cfg ~/.todo.cfg
+```
+
 ## Switch to the `~/dotfiles/vim` directory, and clone bundles:
 
 ```bash

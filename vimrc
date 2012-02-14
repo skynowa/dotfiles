@@ -1,6 +1,7 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -----------------------------------------------------------------------------
 " Enable Pathogen for bundling of plugin repos
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -----------------------------------------------------------------------------
+
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
@@ -10,9 +11,9 @@ if has('win32') || has('win64')
   set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 endif
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -----------------------------------------------------------------------------
 " Functionality
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -----------------------------------------------------------------------------
 
 " Disable Vi compatibility
 set nocompatible
@@ -25,7 +26,10 @@ set nobackup
 set nowritebackup
 
 " Set history to 100
-set history=500
+set history=100
+
+" Support these files
+set ffs=unix,dos,mac
 
 " Display incomplete commands
 set showcmd
@@ -56,6 +60,9 @@ set shiftround
 set autoindent
 set expandtab
 
+" Wrap at 80 chars by default
+set textwidth=80
+
 " Set backspaces to work properly (intelligent for indentation)
 set backspace=start,eol,indent
 
@@ -78,8 +85,7 @@ set title
 set foldmethod=indent  " Base on indentation
 set foldnestmax=10     " Allow a max fold depth of 10 levels
 set nofoldenable       " Don't fold by default
-set foldlevel=1        " 
-
+set foldlevel=1        "
 
 " Pesky swap file @.@
 set noswapfile
@@ -88,14 +94,9 @@ set noswapfile
 set encoding=utf-8 nobomb
 scriptencoding utf-8
 
-" Make arrow and other keys work if not a Windows system
-if !has('win32') && !has('win64')
-  set term=$TERM
-endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -----------------------------------------------------------------------------
 " Visual
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -----------------------------------------------------------------------------
 
 " Show position in file
 set ruler
@@ -111,6 +112,9 @@ set number
 
 " Show mathing braces
 set sm
+
+" Set column colour to -2 of text width (creating a visual line)
+set colorcolumn=-2
 
 " Do not highlight search result phrases
 set nohlsearch
@@ -140,13 +144,13 @@ if has("gui_running")
   set background=dark
   " Choose colour scheme
   colorscheme ir_black
-  set lines=40
-  set columns=80
+  "set lines=40
+  "set columns=80
 endif
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -----------------------------------------------------------------------------
 " Aliases, functions, shortcuts, etc.
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -----------------------------------------------------------------------------
 
 " Set leader to comma
 let mapleader = ","
@@ -200,17 +204,17 @@ else
   " Always set autoindenting on
   set autoindent
 endif
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERDTree plugin settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"Shortcut for NERDTreeToggle  
+" -----------------------------------------------------------------------------
+" NERDTree plugin settings
+" -----------------------------------------------------------------------------
+
+"Shortcut for NERDTreeToggle
 nmap <leader>nt :NERDTreeToggle <CR>
 
-"autopen NERDTree and focus cursor in new document  
-autocmd VimEnter * NERDTree  
-autocmd VimEnter * wincmd p 
+"autopen NERDTree and focus cursor in new document
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
 
 " Show hidden (dot) files
 let NERDTreeShowHidden=1

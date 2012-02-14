@@ -3,58 +3,61 @@
 # ======= #
 
 # Utility
-alias reload='source ~/dotfiles/bash/aliases'         # Reload aliases
-alias ea='mate -w ~/dotfiles/bash/aliases && reload'  # Edit aliases
-alias ee="mate ~/dotfiles/bash/env"                   #
+alias reload='source ~/.bashrc'                       # Reload bashrc
+alias ea='subl -w ~/dotfiles/bash/aliases && reload'  # Edit aliases
+alias ee='subl ~/dotfiles/bash/env'                   #
 
-# Common (Some are from Damian Conway)
-alias a='ls -A'                      # -A all except literal . ..
-alias la="ls -AlG"                   #
-alias c='clear'                      # Clear screen
-alias cdd='cd -'                     # Go to last dir cd'ed from
-alias cl='clear; l'                  # Clear screen, list
-alias cls='clear; ls'                # Clear screen, list
-alias h='history'                    # Show history
+# Common (some are from Damian Conway)
+alias a='ls -A'                   # -A all except literal . ..
+alias la='ls -AlG'                #
+alias c='clear'                   # Clear screen
+alias cdd='cd -'                  # Go to last dir cd'ed from
+alias cl='clear; l'               # Clear screen, list
+alias cls='clear; ls'             # Clear screen, list
+alias h='history'                 # Show history
 alias l.='ls -d .[^.]*' 
-alias l='ls -lhGt'                   # Long listing, recent first, -G color
+alias l='ls -lhGt'                # Long listing, recent first, -G color
 alias lh="ls -lh"
-alias ll='ls -lhG'                   # Long listing, human readable, no group info
-alias lt='ls -lt'                    # Sort with recently modified first
+alias ll='ls -lhG'                # Long listing, human readable, no group info
+alias lt='ls -lt'                 # Sort with recently modified first
 alias md='mkdir -p'
-alias ..='cd ..'                     # Move up one dir
-alias ...="cd ../.."                 # Move up two dirs
-alias ~="cd ~"                       # Go back to home
-alias e='exit'                       # Exit
-alias lsd='ls -l | grep "^d"'        # List only directories
-alias tu='top -o cpu'                # Show processes by CPU
-alias tm='top -o vsize'              # Show processes by memory
-alias fs="stat -f \"%z bytes\""      # File size
+alias ..='cd ..'                  # Move up one dir
+alias ...='cd ../..'              # Move up two dirs
+alias ~='cd ~'                    # Go back to home
+alias e='exit'                    # Exit
+alias lsd='ls -l | grep "^d"'     # List only directories
+alias tu='top -o cpu'             # Show processes by CPU
+alias tm='top -o vsize'           # Show processes by memory
+alias fs='stat -f \"%z bytes\"'   # File size
 alias rot13='tr a-zA-Z n-za-mN-ZA-M' # ROT13-encode and decode text
 
+# todo.sh shortcut (https://github.com/ginatrapani/todo.txt-cli)
+export TODOTXT_DEFAULT_ACTION=ls
+alias t='todo.sh -d ~/.todo.cfg'
+
 # IP addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
+alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias localip='ipconfig getifaddr en1'
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
-alias whois="whois -h whois-servers.net"
+alias whois='whois -h whois-servers.net'
 
 # Flush Directory Service cache
-alias flush="dscacheutil -flushcache"
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+  alias flush='dscacheutil -flushcache'
+fi
 
 # Trim new lines and copy to clipboard
 alias c="tr -d '\n' | pbcopy"
 
 # Shortcuts
-alias d="cd ~/Documents/Dropbox"
-alias p="cd ~/Projects"
-alias g="git"
-alias v="vim"
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-  alias m="mate ."
-fi
+alias d='cd ~/Documents/Dropbox'
+alias p='cd ~/Projects'
+alias g='git'
+alias v='vim'
 
 # Empty the Trash
 if [[ "$OSTYPE" =~ ^darwin ]]; then
-  alias emptytrash="rm -rfv ~/.Trash"
+  alias emptytrash='rm -rfv ~/.Trash'
 fi
 
 # Recursively delete `.DS_Store` files
@@ -70,11 +73,12 @@ fi
 
 # Always use color output for `ls`
 if [[ "$OSTYPE" =~ ^darwin ]]; then
-  alias ls="command ls -G"
+  alias ls='command ls -G'
 else
-	alias ls="command ls --color"
-	export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
+  alias ls='command ls --color'
 fi
+
+export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
 
 # ========= #
 # Functions #
