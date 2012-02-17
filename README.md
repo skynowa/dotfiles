@@ -85,7 +85,8 @@ I am currently using the following Vim bundles (via Pathogen):
 * <git://github.com/vim-scripts/browser.vim--Brown.git>
 * <git://github.com/pangloss/vim-javascript.git>
 * <git://github.com/tpope/vim-repeat.git>
-* <git://github.com/wincent/Command-T.git>
+* <git://github.com/clones/vim-l9.git>
+* <git://github.com/clones/vim-fuzzyfinder.git>
 * <git://github.com/scrooloose/nerdtree.git>
 * <git://github.com/vim-ruby/vim-ruby.git>
 * <git://github.com/leshill/vim-json.git>

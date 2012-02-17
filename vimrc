@@ -115,6 +115,7 @@ set sm
 
 " Set column colour to -2 of text width (creating a visual line)
 set colorcolumn=-2
+highlight ColorColumn ctermbg=DarkBlue guibg=#111111
 
 " Do not highlight search result phrases
 set nohlsearch
@@ -209,12 +210,15 @@ endif
 " NERDTree plugin settings
 " -----------------------------------------------------------------------------
 
-"Shortcut for NERDTreeToggle
+" Shortcut for NERDTreeToggle
 nmap <leader>nt :NERDTreeToggle <CR>
 
-"autopen NERDTree and focus cursor in new document
+" Auto-open NERDTree and focus cursor in new document
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 
 " Show hidden (dot) files
 let NERDTreeShowHidden=1
+
+" Show bookmarks by default
+let NERDTreeShowBookmarks=1

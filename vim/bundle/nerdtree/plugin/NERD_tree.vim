@@ -2074,6 +2074,10 @@ function! s:Opener._openDirectory(node)
             call s:initNerdTreeInPlace(a:node.path.str())
         endif
     endif
+
+    if self._stay
+        call self._restoreCursorPos()
+    endif
 endfunction
 
 "FUNCTION: Opener._previousWindow() {{{3
@@ -2886,6 +2890,10 @@ function! s:createDefaultBindings()
     call NERDTreeAddKeyMap({ 'key': g:NERDTreeMapPreviewVSplit, 'scope': "Node", 'callback': s."previewNodeVSplit" })
     call NERDTreeAddKeyMap({ 'key': g:NERDTreeMapPreviewSplit, 'scope': "Node", 'callback': s."previewNodeHSplit" })
 
+    call NERDTreeAddKeyMap({ 'key': g:NERDTreeMapPreview, 'scope': "Bookmark", 'callback': s."previewNodeCurrent" })
+    call NERDTreeAddKeyMap({ 'key': g:NERDTreeMapPreviewVSplit, 'scope': "Bookmark", 'callback': s."previewNodeVSplit" })
+    call NERDTreeAddKeyMap({ 'key': g:NERDTreeMapPreviewSplit, 'scope': "Bookmark", 'callback': s."previewNodeHSplit" })
+
     call NERDTreeAddKeyMap({ 'key': g:NERDTreeMapOpenRecursively, 'scope': "DirNode", 'callback': s."openNodeRecursively" })
 
     call NERDTreeAddKeyMap({ 'key': g:NERDTreeMapUpdir, 'scope': "all", 'callback': s."upDirCurrentRootClosed" })
@@ -3252,6 +3260,14 @@ endfunction
 
 function! NERDTreeRender()
     call s:renderView()
+endfunction
+
+function! NERDTreeFocus()
+    if s:isTreeOpen()
+        call s:putCursorInTreeWin()
+    else
+        call s:toggle("")
+    endif
 endfunction
 
 " SECTION: View Functions {{{1
