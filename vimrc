@@ -144,10 +144,13 @@ if has("gui_running")
   " Set dark background for our theme of choice
   set background=dark
   " Choose colour scheme
-  colorscheme ir_black
+  " colorscheme ir_black
   "set lines=40
   "set columns=80
 endif
+
+" Delicious even in 256 colours!
+colorscheme Tomorrow-Night
 
 " -----------------------------------------------------------------------------
 " Aliases, functions, shortcuts, etc.

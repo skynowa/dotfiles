@@ -19,8 +19,9 @@ ln -s ~/dotfiles/vim/ ~/.vim
 ln -s ~/dotfiles/gvimrc ~/.gvimrc
 ```
 
-Note that due Pathogen expecting to find bundles at ~/.vim/bundle, we create a 
-symlink for ~/.vim to ~/dotfiles/vim
+Note: be aware that I am using Vim 7.3.x, which adds some new options and my
+.vimrc reflects this. If you are using a lower version, you will surely get
+errors upon Vim startup.
 
 ### BASH
 
@@ -51,50 +52,26 @@ it can be convenient to use my setup to include your config file as so:
 ln -s ~/dotfiles/todo.cfg ~/.todo.cfg
 ```
 
-## Switch to the `~/dotfiles/vim` directory, and clone bundles:
+## Get Vim bundle submodules
+
+In order to ensure your submodules are up-to-date, I prefer adding each bundle
+as a submodule, rather than including cloned bundles as many do.
+
+After cloning this repo, simply issue the following:
 
 ```bash
-cd ~/dotfiles/vim
-./update_bundles
+cd ~/dotfiles
+git submodule update --init
 ```
 
-## Featured Vim bundles
+## Keeping submodules up-to-date
 
-I am currently using the following Vim bundles (via Pathogen):
+In order to update your precious submodules automatically, do:
 
-* <git://github.com/tpope/vim-pathogen.git>
-* <git://github.com/tpope/vim-fugitive.git>
-* <git://github.com/henrik/vim-indexed-search.git>
-* <git://github.com/othree/html5.vim.git>
-* <git://github.com/plasticboy/vim-markdown.git>
-* <git://github.com/timcharper/textile.vim.git>
-* <git://github.com/tpope/vim-haml.git>
-* <git://github.com/digitaltoad/vim-jade.git>
-* <git://github.com/tpope/vim-rails.git>
-* <git://github.com/tpope/vim-rvm.git>
-* <git://github.com/tpope/vim-commentary.git>
-* <git://github.com/tpope/vim-cucumber.git>
-* <git://github.com/tpope/vim-surround.git>
-* <git://github.com/tpope/vim-git.git>
-* <git://github.com/tsaleh/vim-shoulda.git>
-* <git://github.com/wavded/vim-stylus.git>
-* <git://github.com/duskhacker/sweet-rspec-vim.git>
-* <git://github.com/itspriddle/vim-jquery.git>
-* <git://github.com/tsaleh/vim-align.git>
-* <git://github.com/tsaleh/vim-supertab.git>
-* <git://github.com/vim-scripts/browser.vim--Brown.git>
-* <git://github.com/pangloss/vim-javascript.git>
-* <git://github.com/tpope/vim-repeat.git>
-* <git://github.com/clones/vim-l9.git>
-* <git://github.com/clones/vim-fuzzyfinder.git>
-* <git://github.com/scrooloose/nerdtree.git>
-* <git://github.com/vim-ruby/vim-ruby.git>
-* <git://github.com/leshill/vim-json.git>
-* <git://github.com/tsaleh/vim-tcomment.git>
-* <git://github.com/mattn/gist-vim.git>
-* <git://github.com/msanders/snipmate.vim.git>
-* <git://github.com/briancollins/vim-jst.git>
-* <git://github.com/tpope/vim-vividchalk.git>
+```bash
+cd ~/dotfiles
+git submodule foreach git pull
+```
 
 Suggestions and improvements are 
 [welcome](https://github.com/akiva/dotfiles/issues)
