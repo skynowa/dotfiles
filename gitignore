@@ -1,5 +1,14 @@
-.DS_Store
-.svn
+# Ignore generic temp file formats
 *~
-.*.swp
-.project
+*.swp
+*.out
+*.lock
+
+# Ignore annoying DS_Store files created by Mac OS X
+.DS_Store
+
+# Ignore thumbnails created by Windows. Please consider switching OSes
+Thumbs.db
+
+# Ignore SVN files
+.svn

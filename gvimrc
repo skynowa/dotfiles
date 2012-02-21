@@ -1,3 +1,7 @@
+" TODO verify this file's compatibility and settings as I have not used gVim or
+" MacVim in quite a while. I recall some redundancies between this file and the
+" .vimrc proper.
+
 set lines=75
 set columns=240
 " set gfn=Menlo\ Regular:h12

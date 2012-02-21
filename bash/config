@@ -1,9 +1,10 @@
 # Colors from http://wiki.archlinux.org/index.php/Color_Bash_Prompt
 
 # Disable any colors
-NO_COLOR='\e[0m' 
+NO_COLOR='\e[0m'
 ENO_COLOR='\033[1m' # Bold
 UNO_COLOR='\033[4m' # Underlined
+
 # Regular colors
 BLACK='\e[0;30m'
 RED='\e[0;31m'
@@ -13,6 +14,7 @@ BLUE='\e[0;34m'
 MAGENTA='\e[0;35m'
 CYAN='\e[0;36m'
 WHITE='\e[0;37m'
+
 # Emphasized (bolded) colors
 EBLACK='\e[1;30m'
 ERED='\e[1;31m'
@@ -22,6 +24,7 @@ EBLUE='\e[1;34m'
 EMAGENTA='\e[1;35m'
 ECYAN='\e[1;36m'
 EWHITE='\e[1;37m'
+
 # Underlined colors
 UBLACK='\e[4;30m'
 URED='\e[4;31m'
@@ -31,6 +34,7 @@ UBLUE='\e[4;34m'
 UMAGENTA='\e[4;35m'
 UCYAN='\e[4;36m'
 UWHITE='\e[4;37m'
+
 # Background colors
 BBLACK='\e[40m'
 BRED='\e[41m'
@@ -43,7 +47,6 @@ BWHITE='\e[47m'
 
 # Update the command prompt to be <user>:<current_directory>(git_branch) >
 # Note that the git branch is given a special color
-PS1="\n[\t] \u@\h:\w $(vcprompt)\n☠ "
-
-# User @ Host – working dir
-# export PS1="\u@\h\w: "
+# If VCPrompt is installed, include in the display
+# To get VCPrompt, see http://vcprompt.com/
+PS1="\n[\t] \u@\h:\w`if [ "$(vcprompt)" != "" ]; then echo " $(vcprompt)"; fi`\n☠ "

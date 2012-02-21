@@ -1,15 +1,19 @@
 # Akiva Levy's Dotfiles
 
-Various hacks and tweaks I employ in my [work](http://sixthirteendesign.com) 
-setup for *nix-based systems.
+An extremely extensive set of dotfiles, annotated for a clear understanding,
+that I use for my [work](http://sixthirteendesign.com). This includes Web
+development, UI design, and server administration for \*nix-based systems
+(including OS X).
 
-## Installation:
+Clearly the best dotfiles collection out there... For me, at least ^\_^
+
+## Package Installation
 
 ```bash
 git clone git://github.com/akiva/dotfiles.git ~/
 ```
 
-## Create symlinks for any of the tools you use:
+## Creating symlinks for any of the tools you wish to use
 
 ### Vim
 
@@ -19,9 +23,9 @@ ln -s ~/dotfiles/vim/ ~/.vim
 ln -s ~/dotfiles/gvimrc ~/.gvimrc
 ```
 
-Note: be aware that I am using Vim 7.3.x, which adds some new options and my
-.vimrc reflects this. If you are using a lower version, you will surely get
-errors upon Vim startup.
+Note: be aware that I am using Vim 7.3.x, which adds some new options and as
+such, my .vimrc reflects this. If you are using a lower version, you really
+ought to consider upgrading.
 
 ### BASH
 
@@ -45,7 +49,7 @@ ln -s ~/dotfiles/ssh/config ~/.ssh/config
 
 ### TODO.SH
 
-If you use [todo.sh](https://github.com/ginatrapani/todo.txt-cli) as I do, 
+If you use [todo.sh](https://github.com/ginatrapani/todo.txt-cli) as I do,
 it can be convenient to use my setup to include your config file as so:
 
 ```bash
@@ -73,5 +77,5 @@ cd ~/dotfiles
 git submodule foreach git pull
 ```
 
-Suggestions and improvements are 
+Suggestions and improvements are
 [welcome](https://github.com/akiva/dotfiles/issues)

@@ -1,75 +1,98 @@
-# ======= #
-# Aliases #
-# ======= #
+# ==============================================================================
+# Aliases
+# ==============================================================================
 
-# Utility
-alias reload='source ~/.bashrc'                       # Reload bashrc
-alias ea='subl -w ~/dotfiles/bash/aliases && reload'  # Edit aliases
-alias ee='subl ~/dotfiles/bash/env'                   #
+## BASH ------------------------------------------------------------------------
 
-# Common (some are from Damian Conway)
-alias a='ls -A'                   # -A all except literal . ..
-alias la='ls -AlG'                #
-alias c='clear'                   # Clear screen
-alias cdd='cd -'                  # Go to last dir cd'ed from
-alias cl='clear; l'               # Clear screen, list
-alias cls='clear; ls'             # Clear screen, list
-alias h='history'                 # Show history
-alias l.='ls -d .[^.]*' 
-alias l='ls -lhGt'                # Long listing, recent first, -G color
-alias lh="ls -lh"
-alias ll='ls -lhG'                # Long listing, human readable, no group info
-alias lt='ls -lt'                 # Sort with recently modified first
+# Reload BASH rc file
+alias reload='. ~/.bashrc'
+
+# Edit BASH aliases
+alias ea='vim ~/dotfiles/bash/aliases && reload'
+
+# Edit BASH environment
+alias ee='vim ~/dotfiles/bash/env'
+
+## General Commands and Shortcuts ----------------------------------------------
+
+# Clear screen
+alias c='clear'
+
+# Show history
+alias h='history'
+
+# Exit
+alias e='exit'
+
+# Make directory with parents
 alias md='mkdir -p'
-alias ..='cd ..'                  # Move up one dir
-alias ...='cd ../..'              # Move up two dirs
-alias ~='cd ~'                    # Go back to home
-alias e='exit'                    # Exit
-alias lsd='ls -l | grep "^d"'     # List only directories
-alias tu='top -o cpu'             # Show processes by CPU
-alias tm='top -o vsize'           # Show processes by memory
-alias fs='stat -f \"%z bytes\"'   # File size
-alias rot13='tr a-zA-Z n-za-mN-ZA-M' # ROT13-encode and decode text
+
+## Utility ---------------------------------------------------------------------
+
+# Show processes by CPU
+alias tu='top -o cpu'
+
+# Show processes by memory
+alias tm='top -o vsize'
+
+# File size
+alias fs='stat -f \"%z bytes\"'
+
+# ROT13-encode and decode text
+alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 
 # todo.sh shortcut (https://github.com/ginatrapani/todo.txt-cli)
 export TODOTXT_DEFAULT_ACTION=ls
 alias t='todo.sh -d ~/.todo.cfg'
 
-# IP addresses
-alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
-alias localip='ipconfig getifaddr en1'
-alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
-alias whois='whois -h whois-servers.net'
-
-# Flush Directory Service cache
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-  alias flush='dscacheutil -flushcache'
-fi
-
 # Trim new lines and copy to clipboard
 alias c="tr -d '\n' | pbcopy"
 
-# Shortcuts
-alias d='cd ~/Documents/Dropbox'
-alias p='cd ~/Projects'
-alias g='git'
-alias v='vim'
+## Changing directories --------------------------------------------------------
 
-# Empty the Trash
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-  alias emptytrash='rm -rfv ~/.Trash'
-fi
+# Go to the last directory CDed from
+alias cdd='cd -'
 
-# Recursively delete `.DS_Store` files
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-  alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
-fi
+# Move up one dir
+alias ..='cd ..'
 
-# Finder operations (only for Mac OS X)
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-  alias o='open . &'
-  alias ff='open -a Firefox'
-fi
+# Move up two dirs
+alias ...='cd ../..'
+
+# Go back to home
+alias ~='cd ~'
+
+## Listings --------------------------------------------------------------------
+
+# -A all except literal . ..
+alias a='ls -A'
+
+#
+alias la='ls -AlG'
+
+# Clear screen, list
+alias cl='clear; l'
+
+# Clear screen, list
+alias cls='clear; ls'
+
+#
+alias l.='ls -d .[^.]*'
+
+# Long listing, recent first, -G color
+alias l='ls -lhGt'
+
+#
+alias lh="ls -lh"
+
+# Long listing, human readable, no group info
+alias ll='ls -lhG'
+
+# Sort with recently modified first
+alias lt='ls -lt'
+
+# List only directories
+alias lsd='ls -l | grep "^d"'
 
 # Always use color output for `ls`
 if [[ "$OSTYPE" =~ ^darwin ]]; then
@@ -80,17 +103,46 @@ fi
 
 export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
 
-# ========= #
+## IP address ------------------------------------------------------------------
+
+alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias localip='ipconfig getifaddr en1'
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+alias whois='whois -h whois-servers.net'
+
+# Flush Directory Service cache
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+  alias flush='dscacheutil -flushcache'
+fi
+
+## Directory Shortcuts ---------------------------------------------------------
+
+alias d='cd ~/Documents/Dropbox'
+alias p='cd ~/Projects'
+alias g='git'
+alias v='vim'
+
+## Automated Room Keeping (Cleanup) --------------------------------------------
+
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+  # Empty the Trash for
+  alias emptytrash='rm -rfv ~/.Trash'
+
+  # Recursively delete `.DS_Store` files
+  alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
+fi
+
+# ==============================================================================
 # Functions #
-# ========= #
+# ==============================================================================
 
 # Change into dir and list contents
-function cdc() { 
-  cd $1; ls 
+function cdc() {
+  cd $1; ls
 }
 
 # Test if HTTP compression (RFC 2616 + SDCH) is enabled for a given URL.
-# Send a fake UA string for sites that sniff it instead of using the 
+# Send a fake UA string for sites that sniff it instead of using the
 # Accept-Encoding header. (Looking at you, ajax.googleapis.com!)
 function httpcompression() {
   encoding="$(curl -LIs -H 'User-Agent: Mozilla/5 Gecko' -H 'Accept-Encoding: gzip,deflate,compress,sdch' "$1" | grep '^Content-Encoding:')" && echo "$1 is encoded using ${encoding#* }" || echo "$1 is not using any encoding"
@@ -102,13 +154,13 @@ function digga() {
 }
 
 # Create a new directory and enter it
-function md() { 
+function md() {
   mkdir -p "$@" && cd "$@"
 }
 
 # Kill named process
-function killnamed () { 
-  ps ax | grep $1 | cut -d ' ' -f 2 | xargs kill 
+function killnamed () {
+  ps ax | grep $1 | cut -d ' ' -f 2 | xargs kill
 }
 
 # Zip recursively
@@ -116,16 +168,9 @@ function zipr() {
   zip -r $1.zip $1
 }
 
-# Convert Markdown to HTML
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-  function markdown() { 
-    /Applications/TextMate.app/Contents/SharedSupport/Support/bin/Markdown.pl $1 > $1.html 
-  }
-fi
-
 # Setup a tunnel
-function haproxyssh() { 
-  ssh -L7997:127.0.0.1:7997 deploy@$1.com 
+function haproxyssh() {
+  ssh -L7997:127.0.0.1:7997 deploy@$1.com
 }
 
 # Move files to trash (Mac OS X) [From http://github.com/suztomo/dotfiles]
@@ -167,9 +212,9 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
   }
 fi
 
-# ===== #
-# Nginx #
-# ===== #
+# ==============================================================================
+# Nginx
+# ==============================================================================
 
 function nginx_stop() {
   ps ax | grep nginx | cut -d " " -f 1 | xargs sudo kill -9
@@ -179,9 +224,9 @@ function nginx_start() {
   sudo /opt/nginx/sbin/nginx
 }
 
-# === #
-# Git #
-# === #
+# ==============================================================================
+# Git
+# ==============================================================================
 
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
 alias gb='git branch'
@@ -203,7 +248,7 @@ alias eg='mate .git/config'
 alias undopush="git push -f origin HEAD^:master"
 
 # Commit pending changes and quote all args as message
-function gg() { 
+function gg() {
   git commit -v -a -m "$*"
 }
 
@@ -213,14 +258,14 @@ function gch() {
 }
 
 # Setup a tracking branch from [remote] [branch_name]
-function gbt() { 
-  git branch --track $2 $1/$2 && git checkout $2 
+function gbt() {
+  git branch --track $2 $1/$2 && git checkout $2
 }
 
 # Quickly clobber a file and checkout
-function grf() { 
+function grf() {
   rm $1
-  git checkout $1 
+  git checkout $1
 }
 
 # Call from inside an initialized Git repo, with the name of the repo.
