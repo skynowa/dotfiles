@@ -15,9 +15,6 @@ alias ee='vim ~/dotfiles/bash/env'
 
 ## General Commands and Shortcuts ----------------------------------------------
 
-# Clear screen
-alias c='clear'
-
 # Show history
 alias h='history'
 

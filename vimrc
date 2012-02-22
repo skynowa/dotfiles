@@ -185,10 +185,10 @@ let mapleader = ","
 nmap <leader>nt :NERDTreeToggle <CR>
 
 " Auto-open NERDTree and focus cursor in new document
-if has('autocmd')
-  autocmd VimEnter * NERDTree
-  autocmd VimEnter * wincmd p
-endif
+" if has('autocmd')
+"   autocmd VimEnter * NERDTree
+"   autocmd VimEnter * wincmd p
+" endif
 
 " Show hidden (dot) files
 let NERDTreeShowHidden=1
