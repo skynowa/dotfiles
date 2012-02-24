@@ -69,6 +69,14 @@ set laststatus=2
 set encoding=utf-8 nobomb
 scriptencoding utf-8
 
+" Create a mapping to for paste mode via toggle with F2, because pasting
+" directly from the clipboard in insert mode sucks
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+
+" Display current mode
+set showmode
+
 " -----------------------------------------------------------------------------
 " Visual
 " -----------------------------------------------------------------------------
