@@ -77,6 +77,10 @@ set pastetoggle=<F2>
 " Display current mode
 set showmode
 
+" When the page starts to scroll, keep the cursor 3 lines from the top and 3
+" lines from the bottom
+set scrolloff=3
+
 " -----------------------------------------------------------------------------
 " Visual
 " -----------------------------------------------------------------------------
@@ -144,7 +148,7 @@ endif
 set incsearch
 
 " Do not highlight search result phrases
-set nohlsearch
+" set nohlsearch
 
 " Show line status
 set ls=2
@@ -217,10 +221,10 @@ nnoremap ; :
 " the arrow keys, uncomment the following lines
 " However, due to my MacBook having a small keyboard, I am using the arrow keys
 " as well, since I find the standard method a bit cramped at the moment.
-" map <up> <nop>
-" map <down> <nop>
-" map <left> <nop>
-" map <right> <nop>
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
 
 " Use Q for formatting the current paragraph (or selection)
 vmap Q gq
