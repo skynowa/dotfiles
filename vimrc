@@ -150,6 +150,9 @@ set incsearch
 " Do not highlight search result phrases
 " set nohlsearch
 
+" Enable highlight searching
+set hlsearch
+
 " Show line status
 set ls=2
 
@@ -236,9 +239,8 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Clear previous search results (although I currently have it disabled
-" altogether)
-nmap <silent> <leader>/ :nohlsearch<CR>
+" Press Space to turn off highlighting and clear any message already displayed.
+:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " From Steve Losh, http://forrst.com/posts/Use_w_to_sudo_write_a_file_with_Vim-uAN
 " Save as SUDO after a file has already been opened as a regular user
