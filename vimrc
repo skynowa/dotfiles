@@ -284,6 +284,9 @@ set nolist
 " Toggle invisible chars
 :noremap <leader>i :set list!<CR>
 
+" Set TagBar
+nmap <F8> :TagbarToggle<CR>
+
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 if has('ruby')
   au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
