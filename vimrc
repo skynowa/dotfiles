@@ -287,6 +287,31 @@ set nolist
 " Set TagBar
 nmap <F8> :TagbarToggle<CR>
 
+" Set up alignment shortcuts for Tabularize when in visual or normal mode to
+" align by either = or :
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
+
+" Set up automatic Tabularize mapping when insert mode so that, for instance,
+" while you are coding and you press the pipe (|) key, tabularize will be
+" activated
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 if has('ruby')
   au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
