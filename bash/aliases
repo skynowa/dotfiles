@@ -242,7 +242,7 @@ alias g='git status'
 alias eg='mate .git/config'
 
 # Undo a `git push`
-alias undopush="git push -f origin HEAD^:master"
+alias undopush='git push -f origin HEAD^:master'
 
 # Commit pending changes and quote all args as message
 function gg() {
@@ -267,10 +267,16 @@ function grf() {
 
 # Call from inside an initialized Git repo, with the name of the repo.
 function new-git() {
-  ssh git@example.com "mkdir $1.git && cd $1.git && git --bare init"
+  ssh git@example.com 'mkdir $1.git && cd $1.git && git --bare init'
   git remote add origin git@example.com:$1.git
   git push origin master
   git config branch.master.remote origin
   git config branch.master.merge refs/heads/master
   git config push.default current
 }
+
+# ==============================================================================
+# Ruby on Rails
+# ==============================================================================
+
+alias migrate='rake db:migrate && rake db:test:prepare'
