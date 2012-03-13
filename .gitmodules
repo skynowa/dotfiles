@@ -126,3 +126,7 @@
 	path = vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
   ignore = untracked
+[submodule "vim/bundle/nerdcommenter"]
+	path = vim/bundle/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
+  ignore = untracked
