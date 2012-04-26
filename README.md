@@ -170,29 +170,14 @@ The following are some features I plan on including within these dotfiles.
 
 - Removing Spotlight icon in menu bar, since I prefer Alfred
 
-## `.gemrc` File
+## Other Files Coming Soon
 
-Coming soon...
-
-## `.aprc` File
-
-Coming soon...
-
-## `.inputrc` File
-
-Coming soon...
-
-## `.screenrc` File
-
-Coming soon...
-
-## `.irbrc` File
-
-Coming soon...
-
-## `.pryrc` File
-
-Coming soon...
+- `.gemrc`
+- `.aprc`
+- `.inputrc`
+- `.screenrc`
+- `.irbrc`
+- `.pryrc`
 
 ---
 
