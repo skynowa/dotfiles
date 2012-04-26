@@ -25,7 +25,7 @@ filetype plugin indent on
 set nobackup
 set nowritebackup
 
-" Disable pesky swap file @.@
+" Disable pesky swap files @.@
 set noswapfile
 
 " Set history and undo levels to 500
@@ -220,10 +220,9 @@ let NERDTreeShowBookmarks=1
 " Remap ; to : for quicker commands and saves, etc.
 nnoremap ; :
 
-" If you are still getting used to Vim and want to force yourself to stop using
-" the arrow keys, uncomment the following lines
-" However, due to my MacBook having a small keyboard, I am using the arrow keys
-" as well, since I find the standard method a bit cramped at the moment.
+" The following forces a user to use Vim movement keys as intended (disabling
+" arrow key movement). If you prefer to allow this form of movement within Vim
+" comment the following four lines.
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>

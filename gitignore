@@ -2,7 +2,6 @@
 *~
 *.swp
 *.out
-*.lock
 
 # Ignore annoying DS_Store files created by Mac OS X
 .DS_Store

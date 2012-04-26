@@ -1,0 +1,24 @@
+# ==============================================================================
+# Help
+# ==============================================================================
+
+function bash-help() {
+  echo "Directory Navigation Alias Usage"
+  echo
+  echo "Use the power of directory stacking to move"
+  echo "between several locations with ease."
+  echo
+  echo "d : Show directory stack."
+  echo "po  : Remove current location from stack."
+  echo "pc  : Adds current location to stack."
+  echo "pu <dir>: Adds given location to stack."
+  echo "1 : Chance to stack location 1."
+  echo "2 : Chance to stack location 2."
+  echo "3 : Chance to stack location 3."
+  echo "4 : Chance to stack location 4."
+  echo "5 : Chance to stack location 5."
+  echo "6 : Chance to stack location 6."
+  echo "7 : Chance to stack location 7."
+  echo "8 : Chance to stack location 8."
+  echo "9 : Chance to stack location 9."
+}
