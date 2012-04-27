@@ -62,12 +62,17 @@ elif [[ "$OSTYPE" == cygwin ]]; then
   alias open="cygstart"
 fi
 
+# If using Darwin, alias `md5sum` to `md5`, since none is offered by the OS
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+  alias md5sum="md5"
+fi
+
 # ------------------------------------------------------------------------------
 # Changing directories
 # ------------------------------------------------------------------------------
 
 # Go to the last directory CDed from
-alias cdd='cd -'
+alias -- -='cd -'
 
 # Move up one dir
 alias ..='cd ..'
@@ -120,7 +125,7 @@ else
 fi
 
 # ------------------------------------------------------------------------------
-# IP address
+# Network (IP address, etc.)
 # ------------------------------------------------------------------------------
 
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
@@ -133,6 +138,11 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
   alias flush='dscacheutil -flushcache'
 fi
 
+# LWP-Request helper: One of @janmoesen’s ProTip™s
+for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+  alias "$method"="lwp-request -m '$method'"
+done
+
 # ------------------------------------------------------------------------------
 # Directory Shortcuts
 # ------------------------------------------------------------------------------
@@ -143,12 +153,13 @@ alias g='git'
 alias v='vim'
 
 # ------------------------------------------------------------------------------
-# Automated Housekeeping (Cleanup)
+# Housekeeping (Cleanup, maintenance, etc.)
 # ------------------------------------------------------------------------------
 
 if [[ "$OSTYPE" =~ ^darwin ]]; then
-  # Empty the Trash for
-  alias emptytrash='rm -rfv ~/.Trash'
+  # Empty the Trash from all mounted volumes, including startup disc and system
+  # logs (improving startup speeds)
+  alias emptytrash='sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl'
 
   # Recursively delete `.DS_Store` files
   alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
