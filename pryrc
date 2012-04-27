@@ -1,13 +1,13 @@
-# ==============================================================================
+# =============================================================================
 # For more info, see:
 # https://github.com/pry/pry/wiki
 # https://github.com/pry/pry/wiki/Pry-rc
 # https://github.com/fnando/dotfiles/blob/master/files/pryrc
 # https://gist.github.com/1297510
 # https://github.com/lucapette/dotfiles/blob/master/pryrc
-# http://www.deploymentzone.com/2012/01/22/pry-and-pryrc-add-lib-and-spec-to-load_path/
+# http://deploymentzone.com/2012/01/22/pry-and-pryrc-add-lib-and-spec-to-load_path/
 # https://github.com/lexmag/dotfiles/blob/master/pryrc
-# ==============================================================================
+# =============================================================================
 
 # -----------------------------------------------------------------------------
 # General
@@ -37,23 +37,23 @@ Pry.config.ls.separator = "\n" # new lines between methods
 
 # awesome_print gem: great syntax colorized printing
 # look at ~/.aprc for more settings for awesome_print
-# begin
-#   require 'awesome_print'
+begin
+  require 'awesome_print'
   # The following line enables awesome_print for all pry output,
   # and it also enables paging
-#   Pry.config.print = proc {|output, value| Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output)}
+  Pry.config.print = proc {|output, value| Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output)}
 
   # If you want awesome_print without automatic pagination, use the line below
   # Pry.config.print = proc { |output, value| output.puts value.ai }
 #   rescue LoadError => err
 #     puts "gem install awesome_print  # <-- highly recommended"
-# end
+end
 
 # -----------------------------------------------------------------------------
 # Custom Commands
 # -----------------------------------------------------------------------------
 
-# from: https://gist.github.com/1297510
+# From: https://gist.github.com/1297510
 default_command_set = Pry::CommandSet.new do
   command "copy", "Copy argument to the clip-board" do |str|
     IO.popen('pbcopy', 'w') { |f| f << str.to_s }
@@ -91,7 +91,7 @@ Pry.config.commands.import default_command_set
 # Convenience Methods
 # -----------------------------------------------------------------------------
 
-# Stolen from https://gist.github.com/807492
+# From https://gist.github.com/807492
 # Use Array.toy or Hash.toy to get an array or hash to play with
 class Array
   def self.toy(n=10, &block)
@@ -113,7 +113,8 @@ end
 # color codes, but such is life.
 CodeRay.scan("example", :ruby).term # just to load necessary files
 
-# Token colors pulled from: https://github.com/rubychan/coderay/blob/master/lib/coderay/encoders/terminal.rb
+# Token colors pulled from:
+# https://github.com/rubychan/coderay/blob/master/lib/coderay/encoders/terminal.rb
 TERM_TOKEN_COLORS = {
   :attribute_name => '33',
   :attribute_value => '31',

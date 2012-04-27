@@ -70,7 +70,7 @@ ln -s ~/dotfiles/bash_profile ~/.bash_profile
 `
 
 If you would like to overwrite some of the settings included with your own
-preferences, you can include them in a `.local-bashrc` file, which will be
+preferences, you can include them in a `.bashrc.local` file, which will be
 loaded automatically within the `.bash_profile` after the `.bash_rc` is
 included (thus, overriding said preferences).
 
@@ -138,6 +138,15 @@ cd ~/dotfiles
 git submodule update --init
 `
 
+## Keeping Dotfiles up-to-date
+
+Easy peasy:
+
+`
+cd ~/dotfiles
+git pull origin master
+`
+
 ## Keeping Submodules Up-to-Date
 
 In order to update all those precious submodules easily, do the following:
@@ -170,14 +179,15 @@ The following are some features I plan on including within these dotfiles.
 
 - Removing Spotlight icon in menu bar, since I prefer Alfred
 
+## General
+
+- Include instructions for all dotfiles
+
 ## Other Files Coming Soon
 
-- `.gemrc`
-- `.aprc`
 - `.inputrc`
 - `.screenrc`
 - `.irbrc`
-- `.pryrc`
 
 ---
 

@@ -1,9 +1,9 @@
 " Disable Vi compatibility
 set nocompatible
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Enable Pathogen for bundling of plugin repos
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
@@ -14,9 +14,9 @@ if has('win32') || has('win64')
   set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 endif
 
-" -----------------------------------------------------------------------------
-" Functionality
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
+" Core Functionality
+" ------------------------------------------------------------------------------
 
 " Automatically detect file types
 filetype plugin indent on
@@ -81,9 +81,9 @@ set showmode
 " lines from the bottom
 set scrolloff=3
 
-" -----------------------------------------------------------------------------
-" Visual
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
+" Visual Settings
+" ------------------------------------------------------------------------------
 
 " Show position in file
 set ruler
@@ -147,9 +147,6 @@ endif
 " Search for words dynamically as they are typed
 set incsearch
 
-" Do not highlight search result phrases
-" set nohlsearch
-
 " Enable highlight searching
 set hlsearch
 
@@ -159,20 +156,22 @@ set ls=2
 " Set colour range to 256
 set t_Co=256
 
+" Enable syntax highlighter when colours are enabled
 if &t_Co > 2 || has("gui_running")
-  " Enable syntax highlighter when colours are enabled
   syntax on
 endif
 
+" If 256 Colour is supported and enabled
 if &t_Co >= 256 || has("gui_running")
   " Delicious, even in 256 colours!
   colorscheme Tomorrow-Night
-  " Set colour for colorcolumn
+  " Set colour for colorcolumn if Vim version >= 703
   if version >= 703
     highlight ColorColumn ctermbg=Black guibg=#111111
   endif
 endif
 
+" If GUI is running (settings usually found in .gvimrc)
 if has("gui_running")
   " Grow to maximum horizontal width on entering fullscreen mode
   set fuoptions=maxvert,maxhorz
@@ -185,25 +184,19 @@ if has("gui_running")
   au GUIEnter * set fullscreen
 endif
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Set Mapleader (beginning functions, assignments, etc.)
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " Set leader to comma
 let mapleader = ","
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " NERDTree plugin settings
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " Shortcut for NERDTreeToggle
 nmap <leader>nt :NERDTreeToggle <CR>
-
-" Auto-open NERDTree and focus cursor in new document
-" if has('autocmd')
-"   autocmd VimEnter * NERDTree
-"   autocmd VimEnter * wincmd p
-" endif
 
 " Show hidden (dot) files
 let NERDTreeShowHidden=1
@@ -211,9 +204,9 @@ let NERDTreeShowHidden=1
 " Show bookmarks by default
 let NERDTreeShowBookmarks=1
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Aliases, functions, shortcuts, mappings, remapping, etc.
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " The first few of these inspired by http://nvie.com/posts/how-i-boosted-my-vim/
 
@@ -228,15 +221,15 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
-" Use Q for formatting the current paragraph (or selection)
-vmap Q gq
-nmap Q gqap
-
 " Easy window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+" Use Q for formatting the current paragraph (or selection)
+vmap Q gq
+nmap Q gqap
 
 " Press Space to turn off highlighting and clear any message already displayed.
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
@@ -245,19 +238,12 @@ map <C-l> <C-w>l
 " Save as SUDO after a file has already been opened as a regular user
 cmap w!! w !sudo tee % >/dev/null
 
-" Strip trailing whitespace (,ss)
-function! StripWhitespace ()
-  let save_cursor = getpos(".")
-  let old_query = getreg('/')
-  :%s/\s\+$//e
-  call setpos('.', save_cursor)
-  call setreg('/', old_query)
-endfunction
-
 noremap <leader>ss :call StripWhitespace ()<CR>
 
 " Clear trailing whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
+if has('autocmd')
+  autocmd BufWritePre * :%s/\s\+$//e
+endif
 
 " Make editing .vimrc easier
 map <leader>v :sp ~/.vimrc<CR>
@@ -310,6 +296,22 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
+
+" Functions to insert `=` characters up to 80th column
+function! InsertH1Line()
+  let n = 80-virtcol('.')
+  let myline = repeat('=', n)
+  return myline
+endfunction
+inoremap <expr> <C-o> InsertH1Line()
+
+" Functions to insert `-` characters up to 80th column
+function! InsertH2Line()
+  let n = 80-virtcol('.')
+  let myline = repeat('-', n)
+  return myline
+endfunction
+inoremap <expr> <C-p> InsertH2Line()
 
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 if has('ruby')

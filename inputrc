@@ -6,3 +6,5 @@
 # http://ss64.com/bash/syntax-inputrc.html
 # http://brettterpstra.com/quick-tip-some-inputrc-fun/
 # http://www.pixelbeat.org/settings/.inputrc
+
+set editing-mode vi

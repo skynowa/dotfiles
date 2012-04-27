@@ -3,7 +3,7 @@
 # ==============================================================================
 
 # ------------------------------------------------------------------------------
-# BASH
+# BASH editing
 # ------------------------------------------------------------------------------
 
 # Reload BASH rc file
@@ -11,9 +11,6 @@ alias reload='. ~/.bashrc'
 
 # Edit BASH aliases
 alias ea='vim ~/dotfiles/bash/aliases && reload'
-
-# Edit BASH environment
-alias ee='vim ~/dotfiles/bash/env'
 
 # ------------------------------------------------------------------------------
 # General Commands and Shortcuts
@@ -55,6 +52,14 @@ fi
 # Print pwd as directory tree
 if [ ! -x "$(which tree 2>/dev/null)" ]; then
   alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+fi
+
+# Using Linux, alias `xdg-open` to act like Darwin's `open`
+# If using Cygwin on Windoze, alias `cygstart`
+if [[ "$OSTYPE" =~ ^linux ]]; then
+  alias open="xdg-open"
+elif [[ "$OSTYPE" == cygwin ]]; then
+  alias open="cygstart"
 fi
 
 # ------------------------------------------------------------------------------

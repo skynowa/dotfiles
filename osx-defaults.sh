@@ -160,4 +160,6 @@ file=/Applications/Dropbox.app/Contents/Resources/check.icns
 unset file
 
 # Kill affected applications
-for app in Safari Finder Dock Mail; do killall "$app"; done
+for app in Safari Finder Dock Mail iTunes iCal Address\ Book SystemUIServer; do killall "$app" > /dev/null 2>&1; done
+
+echo "OSX settings updated. Note that some of these changes require a logout/restart to take effect."
