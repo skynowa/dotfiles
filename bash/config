@@ -63,8 +63,7 @@ BMAGENTA='\e[45m'
 BCYAN='\e[46m'
 BWHITE='\e[47m'
 
-# Update the command prompt to be <user>:<current_directory>(git_branch) >
-# Note that the git branch is given a special color
-# If VCPrompt is installed, include in the display
-# To get VCPrompt, see http://vcprompt.com/
-PS1="\n[\t] \u@\h:\w`if [ "$(vcprompt)" != "" ]; then echo " $(vcprompt)"; fi`\n☠ "
+# The argument to __git_ps1 will be displayed only if you
+# are currently in a git repository.  The %s token will be
+# the name of the current branch.
+PS1='\n[\t] \u@\h:\W$(__git_ps1 " (%s)")\$\n'
