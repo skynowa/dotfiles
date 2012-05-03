@@ -164,11 +164,6 @@ The following are some features I plan on including within these dotfiles.
 
 ## BASH
 
-- Include Linux equivalents for:
-    - Trim new lines and copy to clipboard
-    - Flush DNS cache
-    - Empty trash
-    - Move file to trash
 - Include BASH theme
 - Setup VCPrompt installation http://vcprompt.com/
 - BASH-help function to output all aliases and functions, along with a basic

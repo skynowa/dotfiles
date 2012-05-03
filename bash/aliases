@@ -44,10 +44,14 @@ alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 # todo.sh shortcut (https://github.com/ginatrapani/todo.txt-cli)
 alias t='todo.sh -d ~/.todo.cfg'
 
-# Trim new lines and copy to clipboard
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-  alias c="tr -d '\n' | pbcopy"
+# If using Linux alias pbcopy and pbpaste
+if [[ "$OSTYPE" =~ ^linux ]]; then
+  alias pbcopy='xsel --clipboard --input'
+  alias pbpaste='xsel --clipboard --output'
 fi
+
+# Trim new lines and copy to clipboard
+alias c="tr -d '\n' | pbcopy"
 
 # Print pwd as directory tree
 if [ ! -x "$(which tree 2>/dev/null)" ]; then
@@ -136,6 +140,10 @@ alias whois='whois -h whois-servers.net'
 # Flush Directory Service cache
 if [[ "$OSTYPE" =~ ^darwin ]]; then
   alias flush='dscacheutil -flushcache'
+elif [[ "$OSTYPE" =~ ^linux ]]; then
+  alias flush='sudo /etc/init.d/nscd restart'
+elif [[ "$OSTYPE" == win32 ]]; then
+  alias flush='ipconfig /flushdns'
 fi
 
 # LWP-Request helper: One of @janmoesen’s ProTip™s
