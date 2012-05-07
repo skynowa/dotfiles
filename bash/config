@@ -66,4 +66,7 @@ BWHITE='\e[47m'
 # The argument to __git_ps1 will be displayed only if you
 # are currently in a git repository.  The %s token will be
 # the name of the current branch.
-PS1='\n[\t] \u@\h:\W$(__git_ps1 " (%s)")\$\n'
+
+# No Colours
+# PS1='\n[\t] \u@\h:\W$(__git_ps1 " (%s)")\$\n'
+PS1="\n\[$BLUE\][\t]\[$NO_COLOR\] \[$RED\]\u@\h\[$NO_COLOR\]\[$BLUE\]:\[$NO_COLOR\]\[$ERED\]\W\[$NO_COLOR\]\[$YELLOW\]"'$(__git_ps1 " (%s)")'"\[$NO_COLOR\]\$\n"

@@ -74,6 +74,10 @@ preferences, you can include them in a `.bashrc.local` file, which will be
 loaded automatically within the `.bash_profile` after the `.bash_rc` is
 included (thus, overriding said preferences).
 
+You can view the various custom BASH functions and aliases setup by my dotfiles
+using the `dotfiles-bash-functions` and `dotfiles-bash-aliases` commands,
+respectively
+
 ### Git
 
 Since my Git config file is set up to include my name and e-mail address, this
@@ -165,13 +169,10 @@ The following are some features I plan on including within these dotfiles.
 ## BASH
 
 - Include BASH theme
-- BASH-help function to output all aliases and functions, along with a basic
-  description of usage
-- Colourise CLI output
 
 ## OSX Defaults
 
-- Removing Spotlight icon in menu bar, since I prefer Alfred
+- Removing Spotlight icon in menu bar, since I prefer Alfred on Mac OS X
 
 ## General
 
