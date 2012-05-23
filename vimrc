@@ -130,6 +130,9 @@ set nofoldenable
 
 set foldlevel=1
 
+" turn off error beep/flash
+set visualbell t_vb=
+
 " No blinking .
 set novisualbell
 
@@ -153,9 +156,6 @@ set hlsearch
 " Show line status
 set ls=2
 
-" Set colour range to 256
-set t_Co=256
-
 " Enable syntax highlighter when colours are enabled
 if &t_Co > 2 || has("gui_running")
   syntax on
@@ -164,7 +164,7 @@ endif
 " If 256 Colour is supported and enabled
 if &t_Co >= 256 || has("gui_running")
   " Delicious, even in 256 colours!
-  colorscheme Tomorrow-Night
+  colorscheme tomorrow-night
   " Set colour for colorcolumn if Vim version >= 703
   if version >= 703
     highlight ColorColumn ctermbg=Black guibg=#111111

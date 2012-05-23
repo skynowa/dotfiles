@@ -30,6 +30,3 @@ export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 # Setup todo.sh default action to `list`
 # (https://github.com/ginatrapani/todo.txt-cli)
 export TODOTXT_DEFAULT_ACTION=ls
-
-# Load RVM into a shell session.
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
