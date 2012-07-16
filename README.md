@@ -69,10 +69,15 @@ ln -s ~/dotfiles/bashrc ~/.bashrc
 ln -s ~/dotfiles/bash_profile ~/.bash_profile
 `
 
-If you would like to overwrite some of the settings included with your own
+If you would like to override some of the settings included with your own
 preferences, you can include them in a `.bashrc.local` file, which will be
 loaded automatically within the `.bash_profile` after the `.bash_rc` is
-included (thus, overriding said preferences).
+included (thus, overriding said preferences). You can use the include example as
+a template for you to modify:
+
+`
+cp ~/dotfiles/bash/bashrc.local.example ~/.bashrc.local
+`
 
 You can view the various custom BASH functions and aliases setup by my dotfiles
 using the `dotfiles-bash-functions` and `dotfiles-bash-aliases` commands,

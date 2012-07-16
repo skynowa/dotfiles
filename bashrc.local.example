@@ -1,0 +1,18 @@
+# If you use the action_mailer for Ruby on Rails, you export GMail credentials
+# via your .bashrc.local file, allowing you to have your smtp_settings like so:
+#
+#   config.action_mailer.smtp_settings = {
+#     address: "smtp.gmail.com",
+#     port: 587,
+#     domain: "example.com",
+#     authentication: "plain",
+#     enable_starttls_auto: true,
+#     user_name: ENV["GMAIL_USERNAME"],
+#     password: ENV["GMAIL_PASSWORD"]
+#   }
+#
+# This is, of course, optional and only relevant if you use Action_Mailer in
+# this fashion, or Rails at all, for that matter.
+
+export GMAIL_USERNAME="myname@gmail.com"
+export GMAIL_PASSWORD="secret*"
